@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "subalroy22/laravel-role-permissions",
+    "description": "A Laravel package to manage roles and permissions for users with middleware, Blade directives, and caching support.",
     "keywords": [
-        ":vendor_name",
+        "subalroy22",
         "laravel",
-        ":package_slug"
+        "laravel-role-permissions"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/subalroy22/laravel-role-permissions",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Subol Roy",
+            "email": "subalroy5561@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Subalroy22\\LaravelRolePermissions\\": "src/",
+            "Subalroy22\\LaravelRolePermissions\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "Subalroy22\\LaravelRolePermissions\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Subalroy22\\LaravelRolePermissions\\LaravelRolePermissionsServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelRolePermissions": "Subalroy22\\LaravelRolePermissions\\Facades\\LaravelRolePermissions"
             }
         }
     },
