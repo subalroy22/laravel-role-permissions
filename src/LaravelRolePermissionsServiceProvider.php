@@ -21,6 +21,7 @@ class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-role-permissions')
+            ->hasConfigFile('permissions')
             ->hasMigration('create_roles_table')
             ->hasMigration('create_permissions_table')
             ->hasMigration('create_role_user_table')
