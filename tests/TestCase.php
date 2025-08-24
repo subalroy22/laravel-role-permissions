@@ -15,6 +15,9 @@ class TestCase extends Orchestra
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Subalroy22\\LaravelRolePermissions\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
+
+        // run package migrations here, after application is booted
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
     protected function getPackageProviders($app)
