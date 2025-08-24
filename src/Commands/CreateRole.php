@@ -8,6 +8,7 @@ use Subalroy22\LaravelRolePermissions\Models\Role;
 class CreateRole extends Command
 {
     protected $signature = 'permission:create-role {name}';
+
     protected $description = 'Create a new role';
 
     public function handle()
