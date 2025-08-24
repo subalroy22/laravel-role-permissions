@@ -5,6 +5,10 @@ namespace Subalroy22\LaravelRolePermissions;
 use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Subalroy22\LaravelRolePermissions\Commands\CreatePermission;
+use Subalroy22\LaravelRolePermissions\Commands\CreateRole;
+use Subalroy22\LaravelRolePermissions\Commands\PermissionCacheReset;
+use Subalroy22\LaravelRolePermissions\Commands\ShowRolesAndPermissions;
 
 class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
 {
@@ -21,7 +25,11 @@ class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
             ->hasMigration('create_permissions_table')
             ->hasMigration('create_role_user_table')
             ->hasMigration('create_permission_user_table')
-            ->hasMigration('create_role_has_permissions_table');
+            ->hasMigration('create_role_has_permissions_table')
+            ->hasCommand(CreateRole::class)
+            ->hasCommand(CreatePermission::class)
+            ->hasCommand(ShowRolesAndPermissions::class)
+            ->hasCommand(PermissionCacheReset::class);
     }
 
     public function boot(): void
