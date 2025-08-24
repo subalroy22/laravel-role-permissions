@@ -3,6 +3,7 @@
 namespace Subalroy22\LaravelRolePermissions\Traits;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Cache;
 use Subalroy22\LaravelRolePermissions\Models\Permission;
 use Subalroy22\LaravelRolePermissions\Models\Role;
 
@@ -72,5 +73,28 @@ trait HasRoles
     public function can($ability, $arguments = []): bool
     {
         return $this->hasPermissionTo($ability) || parent::can($ability, $arguments);
+    }
+
+    /**
+     * Return the cached permissions of a user
+     */
+    public function getCachedPermissions()
+    {
+        $cacheKey = 'user_permissions_' . $this->id;
+
+        return Cache::remember($cacheKey, now()->addMinutes(60), function () {
+            return $this->permissions->pluck('name')
+                ->merge($this->roles->flatMap->permissions->pluck('name'))
+                ->unique()
+                ->toArray();
+        });
+    }
+
+    /**
+     * Remove chache
+     */
+    public function forgetCachedPermissions()
+    {
+        Cache::forget('user_permissions_' . $this->id);
     }
 }
