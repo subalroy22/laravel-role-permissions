@@ -17,7 +17,7 @@ class TestCase extends Orchestra
         );
 
         // run package migrations here, after application is booted
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     protected function getPackageProviders($app)
