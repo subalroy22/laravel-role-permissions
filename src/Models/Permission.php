@@ -12,7 +12,7 @@ class Permission extends Model
     /**
      * Users that have this permissions
      */
-    public function users():BelongsToMany
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(
             config('auth.providers.users.model') ?? \App\Models\User::class,
@@ -23,12 +23,11 @@ class Permission extends Model
     /**
      * Roles that have this permission
      */
-    public function roles():BelongsToMany
+    public function roles(): BelongsToMany
     {
         return $this->belongsToMany(
             Role::class,
             'role_has_permissions'
         );
     }
-
 }
