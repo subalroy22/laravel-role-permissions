@@ -2,6 +2,7 @@
 
 namespace Subalroy22\LaravelRolePermissions;
 
+use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -29,5 +30,25 @@ class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
 
         $router->aliasMiddleware('role', \Subalroy22\LaravelRolePermissions\Middleware\RoleMiddleware::class);
         $router->aliasMiddleware('permission', \Subalroy22\LaravelRolePermissions\Middleware\PermissionMiddleware::class);
+
+        /**
+         * Blade directives
+         */
+
+        Blade::directive('role', function ($role) {
+            return "<?php if(auth()->check() && auth()->user()->hasRole($role)): ?>";
+        });
+
+        Blade::directive('endrole', function () {
+            return "<?php endif; ?>";
+        });
+
+        Blade::directive('permission', function ($permission) {
+            return "<?php if(auth()->check() && auth()->user()->hasPermissionTo($permission)): ?>";
+        });
+
+        Blade::directive('endpermission', function () {
+            return "<?php endif; ?>";
+        });
     }
 }
