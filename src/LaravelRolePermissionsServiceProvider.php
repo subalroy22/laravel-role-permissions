@@ -4,7 +4,6 @@ namespace Subalroy22\LaravelRolePermissions;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Subalroy22\LaravelRolePermissions\Commands\LaravelRolePermissionsCommand;
 
 class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
 {
