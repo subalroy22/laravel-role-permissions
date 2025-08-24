@@ -27,12 +27,14 @@ trait HasRoles
     public function assignRole($role)
     {
         $role = $role instanceof Role ? $role : Role::where('name', $role)->firstOrFail();
+
         return $this->roles()->syncWithoutDetaching($role);
     }
 
     public function removeRole($role)
     {
         $role = $role instanceof Role ? $role : Role::where('name', $role)->firstOrFail();
+
         return $this->roles()->detach($role);
     }
 
@@ -47,12 +49,14 @@ trait HasRoles
     public function givePermission($permission)
     {
         $permission = $permission instanceof Permission ? $permission : Permission::where('name', $permission)->firstOrFail();
+
         return $this->permissions()->syncWithoutDetaching($permission);
     }
 
     public function revokePermission($permission)
     {
         $permission = $permission instanceof Permission ? $permission : Permission::where('name', $permission)->firstOrFail();
+
         return $this->permissions()->detach($permission);
     }
 
