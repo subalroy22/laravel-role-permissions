@@ -34,13 +34,12 @@ class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
         /**
          * Blade directives
          */
-
         Blade::directive('role', function ($role) {
             return "<?php if(auth()->check() && auth()->user()->hasRole($role)): ?>";
         });
 
         Blade::directive('endrole', function () {
-            return "<?php endif; ?>";
+            return '<?php endif; ?>';
         });
 
         Blade::directive('permission', function ($permission) {
@@ -48,7 +47,7 @@ class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
         });
 
         Blade::directive('endpermission', function () {
-            return "<?php endif; ?>";
+            return '<?php endif; ?>';
         });
     }
 }
