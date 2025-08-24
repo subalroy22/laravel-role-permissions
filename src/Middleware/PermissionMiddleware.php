@@ -12,7 +12,7 @@ class PermissionMiddleware
     {
         $user = Auth::user();
 
-        if(!$user || !$user->hasPermissionTo($permission)) {
+        if (! $user || ! $user->hasPermissionTo($permission)) {
             return abort(403, 'Unauthorized: missing required permission.');
         }
 

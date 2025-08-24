@@ -12,7 +12,7 @@ class RoleMiddleware
     {
         $user = Auth::user();
 
-        if(!$user || !$user->hasRole($role)) {
+        if (! $user || ! $user->hasRole($role)) {
             return abort(403, 'Unauthorized: missing required role');
         }
 

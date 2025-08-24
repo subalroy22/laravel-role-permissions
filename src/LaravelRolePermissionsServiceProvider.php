@@ -23,7 +23,8 @@ class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
             ->hasMigration('create_role_has_permissions_table');
     }
 
-    public function boot(): void{
+    public function boot(): void
+    {
         $router = $this->app['router'];
 
         $router->aliasMiddleware('role', \Subalroy22\LaravelRolePermissions\Middleware\RoleMiddleware::class);
