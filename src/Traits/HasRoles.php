@@ -80,7 +80,7 @@ trait HasRoles
      */
     public function getCachedPermissions()
     {
-        $cacheKey = 'user_permissions_' . $this->id;
+        $cacheKey = 'user_permissions_'.$this->id;
 
         return Cache::remember($cacheKey, now()->addMinutes(60), function () {
             return $this->permissions->pluck('name')
@@ -95,6 +95,6 @@ trait HasRoles
      */
     public function forgetCachedPermissions()
     {
-        Cache::forget('user_permissions_' . $this->id);
+        Cache::forget('user_permissions_'.$this->id);
     }
 }
