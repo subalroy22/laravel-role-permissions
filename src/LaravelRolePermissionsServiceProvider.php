@@ -63,14 +63,14 @@ class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
          * Publish config file with config tag
          */
         $this->publishes([
-            __DIR__.'/../config/permissions.php' => config_path('permissions.php')
+            __DIR__.'/../config/permissions.php' => config_path('permissions.php'),
         ], 'config');
 
         /**
          * Publish migrations file with migrations tag
          */
         $this->publishes([
-            __DIR__.'/../database/migrations/' => database_path('migrations')
+            __DIR__.'/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
     }
 }
