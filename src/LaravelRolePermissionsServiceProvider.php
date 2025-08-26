@@ -58,5 +58,19 @@ class LaravelRolePermissionsServiceProvider extends PackageServiceProvider
         Blade::directive('endpermission', function () {
             return '<?php endif; ?>';
         });
+
+        /**
+         * Publish config file with config tag
+         */
+        $this->publishes([
+            __DIR__.'/../config/permissions.php' => config_path('permissions.php')
+        ], 'config');
+
+        /**
+         * Publish migrations file with migrations tag
+         */
+        $this->publishes([
+            __DIR__.'/../database/migrations/' => database_path('migrations')
+        ], 'migrations');
     }
 }
